@@ -163,7 +163,7 @@ return false;
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.html">Home</a></li>
-      <li><a href="pizza.html">pizzas</a></li>
+      <li><a href="pizza.php">pizzas</a></li>
       <li><a href="#">location</a></li>
       <li><a href="about.html">About us</a></li>
 	  <li><a href="register.php">Register</a></li>
