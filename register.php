@@ -8,10 +8,8 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
 <script>
-
-
-
 $('document').ready(function() {
 /* handle form validation */
 $("#register-form").validate({
@@ -104,9 +102,6 @@ $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Create
 return false;
 }
 });
-
-
-
 </script>
  
 

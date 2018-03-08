@@ -9,6 +9,90 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
+<script>
+
+$('document').ready(function() {
+	
+$("#register-form2").validate({
+rules:
+{
+firstName: {
+	required: true,
+	minlength: 3
+},
+
+address: {
+	required: true
+},
+
+phone: {
+	required: true
+},
+
+quantity:{
+	required:true;
+}
+
+
+
+},
+messages:
+{
+firstName: "please enter your name",
+address: "please enter a your address",
+phone: "please provide a phone number",
+quantity: "please specify qunatity"
+
+},
+submitHandler: submitForm
+});
+/* handle form submit */
+
+function submitForm() {
+	alert('again here')
+var data = $("#register-form2").serialize();
+$.ajax({
+type : 'POST',
+url : 'orderphp.php',
+data : data,
+beforeSend: function() {
+$("#error").fadeOut();
+$("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span>   saving.... ');
+},
+
+
+success : function(response) {
+	alert(response)
+if(response==1){
+	alert("i'm here 1")
+$("#error").fadeIn(1000, function(){
+$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>   Sorry something went wrong !</div>');
+$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Place order');
+});
+} 
+
+else if(response=="registered"){
+
+$("#error").fadeIn(1000, function(){
+$("#error").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>  Your order is place! Keep the money ready !! :) </div>');
+$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Place order');
+});
+} 
+else {
+	alert("i'm here reg")
+$("#error").fadeIn(1000, function(){
+$("#error").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"></span>   '+data+' !</div>');
+$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Place order');
+});
+}
+}
+});
+return false;
+}
+});
+
+</script>
+
 
 <style>
 .social:hover {
@@ -72,6 +156,7 @@
   </div>
 </nav>
 
+
 <?php
 
 
@@ -88,9 +173,8 @@ exit();
 
 
 
-
 <div class="container">
-            <form class="form-horizontal" role="form" id="register-form" method="POST">
+            <form class="form-horizontal" role="form" id="register-form2" method="POST">
 			
                 <h2>Place your order</h2>
 <div id="error">
@@ -117,16 +201,18 @@ exit();
 				
 				
                 <div class="form-group">
-                    <label for="birthDate" class="col-sm-3 control-label">Pizza Preference</label>
+                    <label for="pizza" class="col-sm-3 control-label">Pizza Preference</label>
                     <div class="col-sm-9">
                         
 						<select name="pizza" id="pizza" class="form-control">
-<?php                        
+
+						<?php                        
     $sql = "SELECT name FROM pizzas";
 $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 while( $emp = mysqli_fetch_assoc($resultset) ) {
 ?>
-<option><?php echo $emp["name"]; ?></option>
+<option><?php echo $emp["name"]; ?> </option>
+ 
  <?php
 }
 ?> 
@@ -136,7 +222,7 @@ while( $emp = mysqli_fetch_assoc($resultset) ) {
 
 				
 				<div class="form-group">
-                    <label for="qunatity" class="col-sm-3 control-label">Quantity</label>
+                    <label for="quantity" class="col-sm-3 control-label">Quantity</label>
                     <div class="col-sm-9">
                         <input type="number" name="quantity" id="quantity" placeholder="quantity" class="form-control">
                     </div>
@@ -145,7 +231,7 @@ while( $emp = mysqli_fetch_assoc($resultset) ) {
                 
 				
 				<div class="form-group">
-                    <label for="gender" class="col-sm-3 control-label">Toppings</label>
+                    <label for="toppings" class="col-sm-3 control-label">Toppings</label>
                     <div class="col-sm-9">
                         <select name="toppings" id="toppings" class="form-control">
                             <option>Pepperoni</option>
