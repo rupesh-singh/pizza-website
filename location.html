@@ -1,12 +1,30 @@
 <html>
 <head>
 <title>Pizza mania</title>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script>
 
+
+$(document).ready(function(){
+
+  $.ajax({
+    url: "mumbai.json", // path to file
+    dataType: 'json', // type of file (text, json, xml, etc)
+    success: function(data) { // callback for successful completion
+      alert(data.name);
+	  //$("#sentences").html(data);
+    },
+    error: function() { // callback if there's an error
+      alert("error");
+    }
+  });     
+   
+});
+
+</script>
 
 <style>
 .social:hover {
@@ -60,7 +78,7 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.html">Home</a></li>
       <li><a href="pizza.php">pizzas</a></li>
-      <li><a href="#">location</a></li>
+      <li><a href="location.html">location</a></li>
       <li><a href="about.html">RSS Feeds</a></li>
 	  <li><a href="register.php">Register</a></li>
 	  <li><a href="order.php">Order Online</a></li>
@@ -68,6 +86,32 @@
   </div>
 </nav>
 
+
+
+<div class="container">
+<fieldset>
+<legend><h2 bgcolor="lightred">Find Us</h2></legend>
+Right now we are open in limited places. You can find us in following cities. 
+we have provided with address. Do reach us. We hope to spread accross the nation. Keep eating.
+</p>
+</fieldset>
+<hr>
+<br>
+<br>
+
+
+<div class="container">
+<form>
+<div class="form-group">
+<select class="form-control" id="mysel" onchange="showjson()">
+<option value="">Select the city :</option>
+<option value="mumbai">Mumbai</option>
+<option value="delhi">Delhi</option>
+</select>
+</form>
+<br>
+<p id="demo"></p>
+</div>
 
 
 

@@ -2,16 +2,18 @@
 <head>
 <title>Pizza mania</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
 <script>
 
-$('document').ready(function() {
+$(document).ready(function() {
 	
 $("#register-form2").validate({
 rules:
@@ -148,7 +150,7 @@ return false;
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.html">Home</a></li>
       <li><a href="pizza.php">pizzas</a></li>
-      <li><a href="#">location</a></li>
+      <li><a href="location.html">location</a></li>
       <li><a href="about.html">RSS Feeds</a></li>
 	  <li><a href="register.php">Register</a></li>
 	  <li><a href="order.php">Order Online</a></li>
