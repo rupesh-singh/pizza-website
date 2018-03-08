@@ -8,107 +8,7 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<script>
 
-
-
-$('document').ready(function() {
-/* handle form validation */
-$("#register-form").validate({
-rules:
-{
-firstName: {
-required: true,
-minlength: 3
-},
-
-email: {
-required: true,
-email: true
-},
-
-phone: {
-required: true
-},
-
-
-birthDate: {
-required: true
-},
-
-
-gender: {
-required: true,
-},
-
-
-meal: {
-required: true,
-},
-
-
-
-},
-messages:
-{
-firstName: "please enter your name",
-email: "please enter a valid email address",
-phone: "please provide a phone number",
-dob: "please enter your name",
-gender: "please enter your name",
-meal: "please enter your name"
-
-},
-submitHandler: submitForm
-});
-/* handle form submit */
-
-function submitForm() {
-var data = $("#register-form").serialize();
-$.ajax({
-type : 'POST',
-url : 'ajaxjs.php',
-data : data,
-beforeSend: function() {
-$("#error").fadeOut();
-$("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span>   registering...');
-},
-
-
-success : function(response) {
-	alert(response)
-if(response==1){
-	alert("i'm here 1")
-$("#error").fadeIn(1000, function(){
-$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>   Sorry email already taken !</div>');
-$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Create Account');
-});
-} 
-
-else if(response=="registered"){
-
-$("#error").fadeIn(1000, function(){
-$("#error").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>  You are registered! Thanks !! :) </div>');
-$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Create Account');
-});
-} 
-else {
-	alert("i'm here reg")
-$("#error").fadeIn(1000, function(){
-$("#error").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"></span>   '+data+' !</div>');
-$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Create Account');
-});
-}
-}
-});
-return false;
-}
-});
-
-
-
-</script>
- 
 
 <style>
 .social:hover {
@@ -172,12 +72,27 @@ return false;
   </div>
 </nav>
 
+<?php
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ait";
+$conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
+if (mysqli_connect_errno()) {
+printf("Connect failed: %s\n", mysqli_connect_error());
+exit();
+}
+?>
+
+
 
 
 <div class="container">
             <form class="form-horizontal" role="form" id="register-form" method="POST">
 			
-                <h2>Regsiter here</h2>
+                <h2>Place your order</h2>
 <div id="error">
 </div>            
 			<div class="form-group">
@@ -188,9 +103,9 @@ return false;
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <label for="address" class="col-sm-3 control-label">Address</label>
                     <div class="col-sm-9">
-                        <input type="email" name="email" id="email" placeholder="Email" class="form-control">
+                        <textarea name="address" id="address" placeholder="Address" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -199,32 +114,56 @@ return false;
                         <input type="text" name="phone" id="phone" placeholder="phone number" class="form-control">
                     </div>
                 </div>
+				
+				
                 <div class="form-group">
-                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                    <label for="birthDate" class="col-sm-3 control-label">Pizza Preference</label>
                     <div class="col-sm-9">
-                        <input type="date" name="birthDate" id="birthDate" class="form-control">
+                        
+						<select name="pizza" id="pizza" class="form-control">
+<?php                        
+    $sql = "SELECT name FROM pizzas";
+$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+while( $emp = mysqli_fetch_assoc($resultset) ) {
+?>
+<option><?php echo $emp["name"]; ?></option>
+ <?php
+}
+?> 
+</select>
+</div>
+</div>
+
+				
+				<div class="form-group">
+                    <label for="qunatity" class="col-sm-3 control-label">Quantity</label>
+                    <div class="col-sm-9">
+                        <input type="number" name="quantity" id="quantity" placeholder="quantity" class="form-control">
                     </div>
                 </div>
+
                 
 				
 				<div class="form-group">
-                    <label for="gender" class="col-sm-3 control-label">Gender</label>
+                    <label for="gender" class="col-sm-3 control-label">Toppings</label>
                     <div class="col-sm-9">
-                        <select name="gender" id="gender" class="form-control">
-                            <option>Male</option>
-                            <option>Female</option>
+                        <select name="toppings" id="toppings" class="form-control">
+                            <option>Pepperoni</option>
+                            <option>Cheese</option>
+							<option>Onion</option>
+							<option>Mushroom</option>
                         </select>
                     </div>
                 </div>
 				
-				
 				<div class="form-group">
-                    <label for="meal" class="col-sm-3 control-label">Meal Preference</label>
+                    <label for="size" class="col-sm-3 control-label">Size</label>
                     <div class="col-sm-9">
-                        <select name="meal" id="meal" class="form-control">
-                            <option>VEG</option>
-                            <option>NON-VEG</option>
-                        </select>
+                        <select name="size" id="size" class="form-control">
+                            <option> SMALL </option>
+                            <option> MEDIUM </option>
+							<option> LARGE </option>
+							</select>
                     </div>
                 </div>
 				
@@ -232,13 +171,12 @@ return false;
 				
 				<div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-default" name="btn-save" id="btn-submit"><span class="glyphicon glyphicon-log-in"></span> Register</button>
+                        <button type="submit" class="btn btn-default" name="btn-save" id="btn-submit"><span class="glyphicon glyphicon-ok"></span>  Place Order</button>
                     </div>
                 </div>
             </form> <!-- /form -->
 			<hr>
         </div> <!-- ./container -->
-
 
 
 

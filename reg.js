@@ -63,6 +63,7 @@ $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span>   regi
 
 success : function(response) {
 if(response==1){
+	
 $("#error").fadeIn(1000, function(){
 $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>   Sorry email already taken !</div>');
 $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Create Account');

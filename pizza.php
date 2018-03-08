@@ -152,9 +152,9 @@
       <li class="active"><a href="index.html">Home</a></li>
       <li><a href="pizza.php">pizzas</a></li>
       <li><a href="#">location</a></li>
-      <li><a href="about.html">About us</a></li>
+      <li><a href="about.html">RSS Feeds</a></li>
 	  <li><a href="register.php">Register</a></li>
-	  <li><a href="#">Order Online</a></li>
+	  <li><a href="order.php">Order Online</a></li>
     </ul>
   </div>
 </nav>

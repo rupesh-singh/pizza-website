@@ -21,7 +21,7 @@ $meal = $_POST['meal'];
 $sql = "SELECT email FROM regiter WHERE Email='$email'";
 $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 $row = mysqli_fetch_assoc($resultset);
-if(!$row['Email']){
+if($row==null){
 $sql = "INSERT INTO regiter(`Name`, `Email`, `Phone`, `Dob`, `Gender`,`meal`) VALUES ('$name', '$email', '$phone','$dob','$gender','$meal')";
 mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn)."qqq".$sql);
 echo "registered";
