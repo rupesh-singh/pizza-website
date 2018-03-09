@@ -81,27 +81,20 @@ $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span>   savi
 
 
 success : function(response) {
-if(response==1){
+	alert(response)
+if(response==""){
 $("#error").fadeIn(1000, function(){
 $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>   Sorry something went wrong !</div>');
 $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Place order');
 });
 } 
 
-else if(response=="registered"){
-
+else {
 $("#error").fadeIn(1000, function(){
-$("#error").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>  Your order is place! Keep the money ready !! :) </div>');
+$("#error").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>  Your order is placed!<br> AMOUNT: '+ response +' <br> Keep the money ready !! :)</div>');
 $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Place order');
 });
 } 
-else {
-	alert("i'm here reg")
-$("#error").fadeIn(1000, function(){
-$("#error").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"></span>   '+data+' !</div>');
-$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Place order');
-});
-}
 }
 });
 return false;
@@ -156,22 +149,24 @@ return false;
 	
 
 <body bgcolor="black">
+
 <!-- HEADER -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Pizza Mania</a>
+      <a class="navbar-brand" href="index.html">Arya's Pie</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li ><a href="index.html">Home</a></li>
       <li><a href="pizza.php">pizzas</a></li>
       <li><a href="location.html">location</a></li>
-      <li><a href="about.html">RSS Feeds</a></li>
+      <li><a href="about.html">Rss Feeds</a></li>
 	  <li><a href="register.php">Register</a></li>
-	  <li><a href="order.php">Order Online</a></li>
-    </ul>
+      <li><a href="order.php">Order Online</a></li>
+	</ul>
   </div>
 </nav>
+
 
 
 <?php

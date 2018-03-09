@@ -150,20 +150,21 @@ return false;
 	
 
 <body bgcolor="black">
+
 <!-- HEADER -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Pizza Mania</a>
+      <a class="navbar-brand" href="index.html">Arya's Pie</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li ><a href="index.html">Home</a></li>
       <li><a href="pizza.php">pizzas</a></li>
       <li><a href="location.html">location</a></li>
-      <li><a href="about.html">RSS Feeds</a></li>
+      <li><a href="about.html">Rss Feeds</a></li>
 	  <li><a href="register.php">Register</a></li>
-	  <li><a href="order.php">Order Online</a></li>
-    </ul>
+      <li><a href="order.php">Order Online</a></li>
+	</ul>
   </div>
 </nav>
 
@@ -233,8 +234,6 @@ return false;
             </form> <!-- /form -->
 			<hr>
         </div> <!-- ./container -->
-
-
 
 
 
