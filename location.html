@@ -1,30 +1,60 @@
 <html>
 <head>
 <title>Pizza mania</title>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+
 <script>
-
-
-$(document).ready(function(){
-
-  $.ajax({
-    url: "mumbai.json", // path to file
-    dataType: 'json', // type of file (text, json, xml, etc)
-    success: function(data) { // callback for successful completion
-      alert(data.name);
-	  //$("#sentences").html(data);
-    },
-    error: function() { // callback if there's an error
-      alert("error");
-    }
-  });     
-   
+function showstore(str){
+	
+alert(str);
+document.getElementById("demo").innerHTML="";
+        if(str=="mumbai"){
+        $.post("http://localhost/ait/mumbai.json",
+        function(data){
+		//alert(data.shop.length)
+		//console.log(data.data.length);
+		for(let i=0;i<data.shop.length;i++)
+		{
+		//alert(data.shop[i].name)
+		var div=document.createElement('div');
+		
+		div.innerHTML='<div class="panel panel-info"> <div class="panel-heading"><span class="glyphicon glyphicon-star"> </span><b><strong>  &nbsp' + data.shop[i].name+ '</strong></b><br>'+ data.shop[i].des +'</div><div class="panel-body"><b>ADDRESS  :   </b>'+ data.shop[i].address+'</br><b>HOURS  :  </b>' + data.shop[i].hours +'<br><b>ORDER  :  </b>'+data.shop[i].order+'<br><b>PHONE NO.  :  </b>'+data.shop[i].phone +'</div>';
+    	document.getElementById("demo").appendChild(div);
+		}
+		
 });
+}
+else if(str=="hyb")
+{
 
+        $.post("http://localhost/ait/hyb.json",
+        function(data){
+		//alert(data.shop.length)
+		//console.log(data.data.length);
+		for(let i=0;i<data.shop.length;i++)
+		{
+		//alert(data.shop[i].name)
+		var div=document.createElement('div');
+		
+		div.innerHTML='<div class="panel panel-info"> <div class="panel-heading"><span class="glyphicon glyphicon-star"> </span><b><strong>  &nbsp' + data.shop[i].name+ '</strong></b><br>'+ data.shop[i].des +'</div><div class="panel-body"><b>ADDRESS  :   </b>'+ data.shop[i].address+'</br><b>HOURS  :  </b>' + data.shop[i].hours +'<br><b>ORDER  :  </b>'+data.shop[i].order+'<br><b>PHONE NO.  :  </b>'+data.shop[i].phone +'</div>';
+    	document.getElementById("demo").appendChild(div);
+		}
+		
+});
+}
+
+
+}
 </script>
+
 
 <style>
 .social:hover {
@@ -103,14 +133,14 @@ we have provided with address. Do reach us. We hope to spread accross the nation
 <div class="container">
 <form>
 <div class="form-group">
-<select class="form-control" id="mysel" onchange="showjson()">
+<select class="form-control" onchange="showstore(this.value)">
 <option value="">Select the city :</option>
 <option value="mumbai">Mumbai</option>
-<option value="delhi">Delhi</option>
+<option value="hyb">Hyderabad</option>
 </select>
 </form>
 <br>
-<p id="demo"></p>
+<p id="demo">All the stores will be listed here: <br><br></p>
 </div>
 
 

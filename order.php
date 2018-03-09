@@ -2,7 +2,7 @@
 <head>
 <title>Pizza mania</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
@@ -13,7 +13,9 @@
 
 <script>
 
-$(document).ready(function() {
+
+
+$('document').ready(function() {
 	
 $("#register-form2").validate({
 rules:
@@ -32,10 +34,22 @@ phone: {
 },
 
 quantity:{
-	required:true;
+	required:true,
+},
+
+pizza:{
+	required:true,
+},
+
+
+size:{
+	required:true,
+},
+
+
+toppings:{
+	required:true,
 }
-
-
 
 },
 messages:
@@ -43,15 +57,18 @@ messages:
 firstName: "please enter your name",
 address: "please enter a your address",
 phone: "please provide a phone number",
-quantity: "please specify qunatity"
+quantity: "please specify qunatity",
+toppings: "please specify qunatity",
+size: "please specify qunatity",
+pizza: "please specify qunatity"
 
 },
 submitHandler: submitForm
 });
-/* handle form submit */
+
 
 function submitForm() {
-	alert('again here')
+	
 var data = $("#register-form2").serialize();
 $.ajax({
 type : 'POST',
@@ -64,9 +81,7 @@ $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span>   savi
 
 
 success : function(response) {
-	alert(response)
 if(response==1){
-	alert("i'm here 1")
 $("#error").fadeIn(1000, function(){
 $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>   Sorry something went wrong !</div>');
 $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Place order');
@@ -91,8 +106,8 @@ $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span>   Place 
 });
 return false;
 }
-});
 
+});
 </script>
 
 
@@ -259,7 +274,7 @@ while( $emp = mysqli_fetch_assoc($resultset) ) {
 				
 				<div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-default" name="btn-save" id="btn-submit"><span class="glyphicon glyphicon-ok"></span>  Place Order</button>
+                        <button type="submit" class="btn btn-default" name="btn-save" id="btn-submit" onclick="submitForm()"><span class="glyphicon glyphicon-ok"></span>  Place Order</button>
                     </div>
                 </div>
             </form> <!-- /form -->

@@ -2,9 +2,9 @@
 	"shop": [
 	    {
 			"id": "PM1",
-			"name": "Francesco's Pizzeria",
+			"name": "Pizza House",
 			"des": "Homely Italian restaurant and takeaway with antipasti, pizzas, salads and pasta on the menu.",
-			"address": "Shop No. 9,10 & 11, Phoenix Mall, Next To Lavista Furnitures, Skyzone Courtyard, Lower Parel West, Mumbai, Maharashtra 400013",
+			"address": "16-11-20/1/6, Saleem Nagar Colony, Malakpet Extension, Old Malakpet, Hyderabad, Telangana 500036",
 			"hours": "Closes soon: 11PM , Opens 11AM Sat",
 			"order": "francescospizzeria.com, swiggy.com, zomato.com, scootsy.com",
 			"phone": "022 6743 7000"
@@ -13,9 +13,9 @@
 
 		{
 			"id": "PM1",
-			"name": "The Playlist Pizzeria",
+			"name": "Eagle Boys Pizza",
 			"des": "Simple outlet dishing up pizzas to eat in the simple cafe-style restaurant or order for delivery.",
-			"address": "Shop No.1, Gloria Apartments, St. Baptist Road, Near Mount Mary Steps, Bandra West, Mumbai, Maharashtra 400050",
+			"address": "Road no. 12, MLA Colony, Next to Omega Hospital, Banjara Hills, Hyderabad, Telangana 500096",
 			"hours": "Closes at 12PM ",
 			"order" : "swiggy.com, zomato.com, scootsy.com",
 			"phone": "99878798855"
@@ -25,9 +25,9 @@
 
 		{
 			"id": "PM1",
-			"name": "Pizzaroma",
+			"name": "Midland Bakers ",
 			"des" : "Simple destination preparing a range of Indianised pizzas and Italian favourites.",
-			"address": "Shop No 25, Powai Plaza, Opposite Indusind Bank,, Central Avenue, Hiranandani Gardens, Powai, Mumbai, Maharashtra 400076",
+			"address": "Plot No. 802 & 803 Ayyappa Central, 100 Ft Road, Opp. YSr Statue, Ayyappa Society, SBH Officers Colony, Mega Hills, Madhapur, Hyderabad, Telangana 500081",
 			"hours": "open all time",
 			"order": "swiggy.com, zomato.com, scootsy.com",
 			"phone": "99878798855"
@@ -37,9 +37,9 @@
 
 		{
 			"id": "PM1",
-			"name": "Smokin' Joe's",
+			"name": "Domino's Pizza",
 			"des": "Fast food chain baking Tex-Mex inspired and classic pizzas, sides and garlic bread.",
-			"address": "Shop no.2, B 8/9, Sai Sagar Society, Sector 9, Near Garam Masala, Airoli, Navi Mumbai, Maharashtra 400708",
+			"address": "AGRR Arcade, Ground Floor, Plot No 4, Rajendra Nagar Circle, Attapur, Opp PVNR Express Way Pillar No 127, Hyderabad, Telangana 500048",
 			"hours": "opens at 10am, closes at 12PM.",
 			"order":"swiggy.com, zomato.com, scootsy.com",
 			"phone": "99878798855"
