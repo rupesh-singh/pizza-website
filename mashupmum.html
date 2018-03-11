@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Maps Mashup</title>
+		<style>
+		#map {
+			height: 70%;
+			width: 70%;
+			margin-top:60px;
+			margin-left:200px;
+		}
+		/* Optional: Makes the sample page fill the window. */
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		</style>
+		
+	</head>
+	<body>
+	<div id="map"></div>
+	<br>
+	<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="location.html">Go back </a></p>
+	
+	<script>
+	var map;
+	var parks = [
+		{"park":"Francesco's Pizzeria","coords":[18.9953992,72.8251636]},
+		{"park":"The Playlist Pizzeria","coords":[19.047756, 72.825132]},
+		{"park":"Smokin' Joe's","coords":[19.1486057, 72.9909248]},
+		{"park":"Pizzaroma","coords":[19.122541, 72.913483]}
+	];
+	
+function mashParks(results) {
+for (var i = 0; i < results.length; i++) {
+	var coords = results[i].coords;
+	var latLng = new google.maps.LatLng(coords[0], coords[1]);
+	var marker = new google.maps.Marker({
+			position: latLng,
+			map: map,
+			label:results[i].park
+	});
+}
+}
+
+function initMap() {
+map = new google.maps.Map(document.getElementById('map'), {
+	zoom: 10,
+	center: new google.maps.LatLng(19, 73),
+	mapTypeId: 'roadmap'
+});
+	mashParks(parks);
+}
+	
+	
+</script>
+	
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiWmAhKloQe68q0mujbhyMkMTZbfCPahk&libraries=places&callback=initMap">
+	</script>
+		
+	
+	</body>
+	</html>

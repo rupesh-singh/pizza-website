@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Maps Mashup</title>
+		<style>
+		#map {
+			height: 70%;
+			width: 70%;
+			margin-top:60px;
+			margin-left:200px;
+		}
+		/* Optional: Makes the sample page fill the window. */
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		</style>
+		
+	</head>
+	<body>
+	<div id="map"></div>
+	<br>
+	<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="location.html">Go back </a></p>
+	<script>
+	var map;
+	var parks = [
+		{"park":"Domino's Pizza","coords":[17.4416929,78.4461845]},
+		{"park":"Pizza House","coords":[17.3720862, 78.5110561]},
+		{"park":"Eagle's Boy Pizza","coords":[17.4141374, 78.4233204]},
+		{"park":" Midland Bakers ","coords":[17.4516982, 78.3918321]}
+	];
+	
+function mashParks(results) {
+for (var i = 0; i < results.length; i++) {
+	var coords = results[i].coords;
+	var latLng = new google.maps.LatLng(coords[0], coords[1]);
+	var marker = new google.maps.Marker({
+			position: latLng,
+			map: map,
+			label:results[i].park
+	});
+}
+}
+
+function initMap() {
+map = new google.maps.Map(document.getElementById('map'), {
+	zoom: 11,
+	center: new google.maps.LatLng(17.3850, 78.4867),
+	mapTypeId: 'roadmap'
+});
+	mashParks(parks);
+}
+	
+	
+</script>
+	
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiWmAhKloQe68q0mujbhyMkMTZbfCPahk&libraries=places&callback=initMap">
+	</script>
+		
+	
+	</body>
+	</html>
