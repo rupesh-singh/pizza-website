@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Pizza mania</title>
+<title>Brothers Pizza</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -8,6 +8,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
+  
 .social:hover {
      -webkit-transform: scale(1.1);
      -moz-transform: scale(1.1);
@@ -24,9 +25,7 @@
      -o-transition-duration: 0.5s;
  }
 
-/*
-    Multicoloured Hover Variations
-*/
+
  
  #social-fb:hover {
      color: #3B5998;
@@ -40,7 +39,48 @@
  #social-em:hover {
      color: #f39c12;
  }
+    
+   
+body {margin: 0;}
 
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #d60000;}
+    
+    ul.topnav li a.main{background-color: #660000}
+    
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+   
+    ul.topnav li {float: none;}
+}
+    
+ 
+    
+ 
+    
+  
+    
 </style>
 </head>
 
@@ -50,25 +90,17 @@
 <body bgcolor="black">
 
 <!-- HEADER -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">Arya's Pie</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li ><a href="index.html">Home</a></li>
-      <li><a href="pizza.php">pizzas</a></li>
+
+
+<ul class="topnav">
+<li><a style="font-family: Comic Sans MS;font-size: 17px" href="index.html"><b>Brothers Pizza</b></a></li>
+  <li><a class="active" href="index.html">Home</a></li>
+   <li><a href="pizza.php">pizzas</a></li>
       <li><a href="location.html">location</a></li>
-      <li><a href="about.html">Rss Feeds</a></li>
-	  <li><a href="register.php">Register</a></li>
+      <li><a href="register.php">Register</a></li>
       <li><a href="order.php">Order Online</a></li>
-	</ul>
-  </div>
-</nav>
-
-
-
-
+  <li class="right"><a href="about.html">About</a></li>
+</ul>
 
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -85,24 +117,23 @@
       <div class="item active">
         <img src="1a.jpg" alt="Los Angeles" style="width:100%; height:70%;">
         <div class="carousel-caption">
-          <h3>Cheese</h3>
-          <p>You can't say NO!</p>
+          <p style="font-size: 95px;font-family:Georgia  ;"><b>Cheese,<br>You can't say<br> NO!</b></p>
         </div>
       </div>
 
       <div class="item">
         <img src="2.jpg" alt="Chicago" style="width:100%;height:70%;">
         <div class="carousel-caption">
-          <h3>Mushroom</h3>
-          <p>It's Good for health</p>
+          
+          <p style="font-size: 95px;font-family: Georgia ;"><b>Mushroom,<br>It's Good <br>for health</b></p>
         </div>
       </div>
     
       <div class="item">
         <img src="3.jpg" alt="New York" style="width:100%;height:70%;">
         <div class="carousel-caption">
-          <h3>Pepperoni</h3>
-          <p>It's Spicy but good</p>
+          
+          <p style="font-size: 95px;font-family: Georgia ;"><b>Pepperoni,<br>It's Spicy but<br> good</b></p>
         </div>
       </div>
   
@@ -121,21 +152,33 @@
 <br>
   <div class="panel panel-default">
   <div class="panel-heading">
-	<strong><marquee><p style="font-family: cursive; font-size: 15pt"><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i>  Available Offers Today!! Enjoy your meal  <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></p></marquee>
+	<strong><marquee><p style="font-family: cursive; font-size: 15pt; color:#d60000"><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i>  Available Offers Today!! Enjoy your meal  <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></p></marquee>
 </div>
 </div>
 	<div class="container">
   
   <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="o1.jpg" class="img-responsive">
+      <a href="order.php">   <img src="o1.jpg" class="img-responsive"> </a>
             </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="o2.jpg" class="img-responsive">
+           <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+      <a href="order.php">   <img src="o2.jpg" class="img-responsive"> </a>
             </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="o3.jpg" class="img-responsive">
+        
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+      <a href="order.php">   <img src="o3.jpg" class="img-responsive"> </a>
+            </div>
+        
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+      <a  href="order.php">   <img src="o4.jpg" class="img-responsive"> </a>
+            </div>
+        
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+      <a href="order.php">   <img src="o5.jpg" class="img-responsive"> </a>
+            </div>
+        
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+      <a href="order.php">   <img src="o6.jpg" class="img-responsive"> </a>
             </div>
   
   </div>
@@ -144,13 +187,15 @@
   
   
   
-<div class="text-center center-block">
-            <br />
+ <div class="text-center center-block">
+           <br />
                 <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
 	            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
 	            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-</div>  
+                <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+</div> 
   
+      
+      
 </body>
 </html>

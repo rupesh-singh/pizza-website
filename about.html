@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Pizza mania</title>
+<title>Brothers Pizza</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -65,7 +65,38 @@ function showRSS(str) {
  #social-em:hover {
      color: #f39c12;
  }
+body {margin: 0;}
 
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #d60000;}
+    
+    ul.topnav li a.main{background-color: #660000}
+    
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
 </style>
 
 
@@ -78,29 +109,23 @@ function showRSS(str) {
 
 
 <!-- HEADER -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">Arya's Pie</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li ><a href="index.html">Home</a></li>
-      <li><a href="pizza.php">pizzas</a></li>
+<ul class="topnav">
+<li><a style="font-family: Comic Sans MS;font-size: 17px" href="index.html"><b>Brothers Pizza</b></a></li>
+  <li><a  href="index.html">Home</a></li>
+   <li><a href="pizza.php">pizzas</a></li>
       <li><a href="location.html">location</a></li>
-      <li><a href="about.html">Rss Feeds</a></li>
-	  <li><a href="register.php">Register</a></li>
+      <li><a href="register.php">Register</a></li>
       <li><a href="order.php">Order Online</a></li>
-	</ul>
-  </div>
-</nav>
+  <li class="right"><a class="active" href="about.html">About</a></li>
+</ul>
 
 
 <div class="container">
 <fieldset>
-<legend><h2 bgcolor="lightred">RSS Feeds</h2></legend>
-Really Simple Syndication (RSS) is an XML-based format for distributing and aggregating Web content (such as news headlines). 
+<legend><h2 bgcolor="lightred"><b>RSS Feeds</b></h2></legend>
+<p style="font-size: 20px">Really Simple Syndication (RSS) is an XML-based format for distributing and aggregating Web content (such as news headlines). 
 Using RSS, web content providers can easily create and disseminate news headlines and URLs. To find more information about common RSS Readers,
-enter the term “RSS Reader” into an internet search engine.
+    enter the term <b>RSS Reader</b> into an internet search engine.
 </p>
 </fieldset>
 </div>
@@ -117,7 +142,7 @@ enter the term “RSS Reader” into an internet search engine.
 </select>
 </form>
 <br>
-<div id="rssOutput">RSS-feed will be listed here...</div>
+<div id="rssOutput" style="font-size: 20px">RSS-feed will be listed here...</div>
 </div>
 
 
